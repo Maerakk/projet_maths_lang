@@ -38,7 +38,11 @@ public class Application_LangModelEns {
 
 		vocab2.writeVocabularyFile("lm/small_corpus/vocabulary2_out.txt");
 
+		vocab1 = new Vocabulary();
 
+
+
+		vocab1.readVocabularyFile("./lm/small_corpus/vocabulary1_in.txt");
 
 		/* création des modèles de langage */
 
@@ -74,6 +78,9 @@ public class Application_LangModelEns {
 		ngramCounts_bigram_vocab2.scanTextFile("data/small_corpus/corpus_fr_train.txt",vocab2,2);
 		ngramCounts_bigram_vocab1.writeNgramCountFile("lm/small_corpus/ngramCounts_bigram_vocabulary2.txt");
 
+		ngramCounts_bigram_vocab2 = new NgramCounts();
+		ngramCounts_bigram_vocab2.scanTextFile("data/small_corpus/corpus_fr_train.txt",vocab2,2);
+		ngramCounts_bigram_vocab2.writeNgramCountFile("lm/small_corpus/ngramCounts_bigram_vocabulary2.txt");
 
 		//création du modèle bigramme sans lissage (lm_bigram_vocab2),
 		// à partir de ngramCounts_bigram_vocab2 et de vocab2
@@ -87,6 +94,8 @@ public class Application_LangModelEns {
 		lm_bigram_laplace_vocab2 = new LaplaceLanguageModel();
 		lm_bigram_laplace_vocab2.setNgramCounts(ngramCounts_bigram_vocab2,vocab2);
 
+		lm_bigram_laplace_vocab2 = new LaplaceLanguageModel();
+		lm_bigram_laplace_vocab2.setNgramCounts(ngramCounts_bigram_vocab2,vocab2)	;
 
 		/* utilisation des modèles de langage */
 
@@ -110,7 +119,7 @@ public class Application_LangModelEns {
 		System.out.println("Avec lm_bigram_laplace_vocab2 : proba(sentence1)="+lm_bigram_laplace_vocab2.getSentenceProb(sentence1));
 		System.out.println("Avec lm_bigram_laplace_vocab2 : proba(sentence2)="+lm_bigram_laplace_vocab2.getSentenceProb(sentence2));
 
-
+		vocab1.writeVocabularyFile("./lm/small_corpus/vocabulary1_out.txt");
 
 
 		/* test des méthodes définies dans NgramUtils */
