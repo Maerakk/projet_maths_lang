@@ -3,7 +3,12 @@ package myLangModel;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import static org.junit.Assert.*;
 import org.junit.rules.TestName;
+
+import java.util.*;
+
+//import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -44,7 +49,6 @@ public class MyNgramUtilsTest {
     @Test
     public void testGetSequenceSize() {
         // TODO
-
     }
 
 
@@ -54,7 +58,6 @@ public class MyNgramUtilsTest {
     @Test
     public void testGenerateNgramsBigrams() {
         // TODO
-
     }
 
 
@@ -64,6 +67,7 @@ public class MyNgramUtilsTest {
     @Test
     public void testGenerateNgrams1to3grams() {
         // TODO
+
 
     }
 
