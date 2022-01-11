@@ -12,7 +12,7 @@ import langModel.*;
  * @author N. Hernandez and S. Quiniou (2017)
  *
  */
-public abstract class AuthorRecognizerAbstractClass {
+public abstract class 	AuthorRecognizerAbstractClass {
 	/**
 	 * the constant for unknown author names.
 	 */
