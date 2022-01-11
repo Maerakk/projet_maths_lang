@@ -42,3 +42,7 @@ On a le droit à faire 2 run pour donner 2 hypothèses sur les phrases de test
   - différent n
   - mot / caractère
   - reverse()
+
+#Notes du professeur
+Quand on déclare un objet complexe on doit déclarer par l'interface LanguageModelInterface. Ca rendra le code bien plus solide </br>
+ex : LanguageModelInterface a = new Naive
