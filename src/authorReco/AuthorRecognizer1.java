@@ -127,8 +127,22 @@ ______et je garde la trace de l'auteur
 retourner auteurMax
 */
 
+		String authorMax = "";
+		Double scoreMax = -1.0;
+		for (String author:authorLangModelsMap.keySet()) {
+			// ex : balzac
+			for (String name_model : authorLangModelsMap.get(author).keySet()){
+				// ex : balzac_bi
+				LanguageModelInterface lm = authorLangModelsMap.get(author).get(name_model);
+				Double score = lm.getSentenceProb(sentence);
+				if(score>scoreMax){
+					scoreMax = score;
+					authorMax = author;
+				}
 
-		return UNKNOWN_AUTHOR;
+			}
+		}
+		return authorMax;
 	}
 	
 	
