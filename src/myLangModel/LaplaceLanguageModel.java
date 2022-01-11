@@ -2,6 +2,7 @@ package myLangModel;
 
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -18,9 +19,9 @@ public class LaplaceLanguageModel extends NaiveLanguageModel {
 		//TODO
 		int counts = ngramCounts.getCounts(ngram);
 		int v = ngramCounts.getTotalWordNumber();
-		Set<String> ngrams = ngramCounts.getNgrams();
+		ArrayList<String> ngrams = (ArrayList<String>) ngramCounts.getNgrams();
 		for (int nGram=0; nGram<v; nGram++){
-			if (ngrams.get(nGram) == ngram){
+			if (Objects.equals(ngrams.get(nGram), ngram)){
 
 			}
 		}
