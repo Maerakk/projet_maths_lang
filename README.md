@@ -23,3 +23,22 @@ Dans cette partie, vous devrez implémenter des classes présentes dans le packa
  - Parfois Intellij, ne reconnaît pas certains imports. Quand vous avez vérifié que la lib est dans votre lib path (file> project structure > libraries > '+'), vider les caches d'intellij
  - Dans NgramUtils, generate sert à la phase de construction des modèles tandis que decompose sert à la phase de calcul de la probabilité d'une nouvelle phrase (laquelle utilise les modèles construits)
  - Dans *LanguageModel, getNgramProb et getSentence prennent tous les deux une séquence de mots en paramètre. Le premier calcule la probabilité conditionnelle en prenant le mot le plus à droite comme tête. Le second calcule la probabilité de la séquence qui est égale aux produits des probabilités conditionnelles qui composent la séquence...
+
+# A rendre
+##Rapport
+Point d'avancement de ce qu'on a fait, pas fait, ce qui marche, ne marche pas
+##Code du projet
+Pas seulement les classes
+## data/authorcorpus/test
+On a le droit à faire 2 run pour donner 2 hypothèses sur les phrases de test
+
+#Problèmes 
+##A la reco de loc
+- Déséquilibre dans le corpus d'entraînement. Plus il y a de données plus grande était la probabilité associée à cet auteur là.
+</br> On peut tronquer un nombre de phrase, de mots .
+- Somme des log prod
+- Interpolation : Si la proba est absente il y a des mécanismes de lissage mais on peut aussi considérer que la proba comb de quelque chose est la somme de proba comb de degré inférieur
+- Combinaison de modeles ngram
+  - différent n
+  - mot / caractère
+  - reverse()
