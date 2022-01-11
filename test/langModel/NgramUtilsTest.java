@@ -77,9 +77,11 @@ public class NgramUtilsTest {
      */
     @Test
     public void testGenerateNgrams1to3grams() {
-
         // TODO
-
+        System.out.println(NgramUtils.generateNgrams(sentence, 1,3));
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList("<s>", "cette", "phrase", "est", "de", "taille", "9", ".", "</s>", "<s> cette", "cette phrase", "phrase est", "est de", "de taille", "taille 9", "9 .", ". </s>", "<s> cette phrase", "cette phrase est", "phrase est de", "est de taille", "de taille 9", "taille 9 .", "9 . </s>"));
+        assertEquals(NgramUtils.generateNgrams(sentence,1,3), list);
     }
 
 

@@ -27,7 +27,7 @@ public class NaiveLanguageModelTest {
 
     @Test
     public void getNgramProb1() {
-        assertEquals();
+//        assertEquals();
     }
 
     @Test
