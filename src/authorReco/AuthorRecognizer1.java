@@ -105,7 +105,7 @@ public class AuthorRecognizer1 extends AuthorRecognizerAbstractClass {
 	 */
 	public String recognizeAuthorSentence(String sentence) {
 		// TODO
-/*       // Ceci est une proposition d'algorithme relativement intuitif.
+       // Ceci est une proposition d'algorithme relativement intuitif.
 		 //
 		 //	Il s'agit de tester chaque modèle de langue 
 		 // et de sélectionner l'auteur dont le modèle de langue aura donné la proba la plus élevée.
@@ -114,7 +114,7 @@ public class AuthorRecognizer1 extends AuthorRecognizerAbstractClass {
 		 // (le fait que les corpus d'entraînement n'ont pas le même nombre de mots)
 		 // qui conduit à un modèle de langue estimé sur plus de données à avoir une proba plus élevé 
 		 // qu'un autre estimé sur moins de données.
-
+/*
 auteurMax = ""
 scoreMax = -1
 pour chaque auteur de authorLangModelsMap:

@@ -1,9 +1,7 @@
-import org.junit.Test;
-
 import java.io.*;
 import java.util.List;
 
-public class fonctionPerso {
+public class fonctionsSubsidiaires {
 
     private static List<String> author_list = List.of("balzac.txt", "hugo.txt", "maupassant.txt", "moliere.txt", "montaigne.txt", "sand.txt", "tocqueville.txt", "tolstoi.txt", "verne.txt", "zola.txt");
 
