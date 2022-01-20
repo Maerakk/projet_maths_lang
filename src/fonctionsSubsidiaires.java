@@ -7,7 +7,8 @@ public class fonctionsSubsidiaires {
 
 
     public static void main(String[] args) throws IOException {
-        lineOnly();
+        // minimumLine();
+        minimumWord();
     }
 
 
@@ -18,28 +19,81 @@ public class fonctionsSubsidiaires {
         // we go through the files
         for (String author:author_list) {
             System.out.println("reading "+author);
+            // give info in console (func is quite long)
             BufferedReader reader = new BufferedReader(new FileReader(new File("data/author_corpus/train/"+author)));
+            // create bufferedReader
             String line = reader.readLine();
+            // init of line var
             long line_count = 0;
+            // init of line counter
             while (line != null ){
+                // we go through every line of the file
                 line_count++;
-                System.out.println("reading line "+String.valueOf(line_count)+" of "+author);
                 line = reader.readLine();
             }
-            if(line_count < max_line){
-                max_line = line_count;
+            // and keep the most little
+            if(line_count < min_line){
+                min_line = line_count;
             }
         }
 
+        // once the minimum amount of line got
+        // we can write files with the same amount of lines
         for (String author:author_list) {
-            System.out.println("writing "+author+" with "+String.valueOf(max_line)+" line");
+            // go through each author
+            System.out.println("writing "+author+" with "+String.valueOf(min_line)+" line");
+            // give info in console
             BufferedReader reader = new BufferedReader(new FileReader(new File("data/author_corpus/train/"+author)));
             String line = reader.readLine();
             PrintWriter new_file = new PrintWriter("data/author_corpus/train/same_line_amount/"+author);
-            for( long line_count = 0; line_count < max_line; line_count++){
+            for(long line_count = 0; line_count < min_line; line_count++){
                 new_file.append(line).append("\n");
                 line = reader.readLine();
             }
+            new_file.close();
+        }
+        System.out.println("Done !");
+    }
+
+    public static void minimumWord() throws IOException{
+        // find the file with minimum amount of lines
+        long min_words = Long.MAX_VALUE;
+        // we go through the files
+        for (String author:author_list) {
+            System.out.println("reading "+author);
+            // give info in console (func is quite long)
+            BufferedReader reader = new BufferedReader(new FileReader(new File("data/author_corpus/train/"+author)));
+            // create bufferedReader
+            String line = reader.readLine();
+            long word_count = 0;
+            while (line != null ){
+                // we go through every line of the file
+                word_count += line.split(" ").length;
+                line = reader.readLine();
+            }
+            // and keep the most little
+            if(word_count < min_words){
+                min_words = word_count;
+            }
+        }
+
+        // once the minimum amount of line got
+        // we can write files with the same amount of lines
+        for (String author:author_list) {
+            // go through each author
+            System.out.println("writing "+author+" with "+String.valueOf(min_words)+" line");
+            // give info in console
+            BufferedReader reader = new BufferedReader(new FileReader(new File("data/author_corpus/train/"+author)));
+            String line = reader.readLine();
+            PrintWriter new_file = new PrintWriter("data/author_corpus/train/same_word_amount/"+author);
+            long word_count=0;
+            // its not exactly the same amount of words but we keep entire phrases and lines
+            while(word_count < min_words){
+                new_file.append(line).append("\n");
+                word_count += line.split(" ").length;
+                line = reader.readLine();
+            }
+            new_file.close();
         }
 
         System.out.println("Done !");
