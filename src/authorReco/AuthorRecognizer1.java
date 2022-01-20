@@ -104,7 +104,7 @@ public class AuthorRecognizer1 extends AuthorRecognizerAbstractClass {
 	 * @return the author of the sentence as recognized by the recognition system.
 	 */
 	public String recognizeAuthorSentence(String sentence) {
-		// TODO
+		// DONE
        // Ceci est une proposition d'algorithme relativement intuitif.
 		 //
 		 //	Il s'agit de tester chaque modèle de langue 

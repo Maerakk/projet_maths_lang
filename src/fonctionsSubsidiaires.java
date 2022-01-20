@@ -11,9 +11,11 @@ public class fonctionsSubsidiaires {
     }
 
 
-    public static void lineOnly() throws IOException {
-        // find the file with least lines
-        long max_line = Long.MAX_VALUE;
+
+    public static void minimumLine() throws IOException {
+        // find the file with minimum amount of lines
+        long min_line = Long.MAX_VALUE;
+        // we go through the files
         for (String author:author_list) {
             System.out.println("reading "+author);
             BufferedReader reader = new BufferedReader(new FileReader(new File("data/author_corpus/train/"+author)));

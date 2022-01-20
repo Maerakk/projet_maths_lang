@@ -38,7 +38,7 @@ public class AuthorRecognizer2 extends AuthorRecognizerAbstractClass {
      * @param authorFile the file path of the file containing
      * the names of the authors recognized by the system.
      */
-    public AuthorRecognizer1(String configFile, String vocabFile, String authorFile) {
+    public AuthorRecognizer2(String configFile, String vocabFile, String authorFile) {
         super();
         //instantiates the configLangModels attribute from the configuration file
         loadAuthorConfigurationFile(configFile);
@@ -104,7 +104,7 @@ public class AuthorRecognizer2 extends AuthorRecognizerAbstractClass {
      * @return the author of the sentence as recognized by the recognition system.
      */
     public String recognizeAuthorSentence(String sentence) {
-        // TODO
+        // DONE
         // Ceci est une proposition d'algorithme relativement intuitif.
         //
         //	Il s'agit de tester chaque modèle de langue
@@ -298,10 +298,10 @@ retourner auteurMax
     public static void create_hyp_file(String configFilePath, String vocabFilePath, String authorFilePath,
                                        String sentenceFilePath, String hypFilePath){
         //initialization of the recognition system
-        AuthorRecognizer1 reco1 = new AuthorRecognizer1(configFilePath, vocabFilePath, authorFilePath);
+        AuthorRecognizer2 reco2 = new AuthorRecognizer2(configFilePath, vocabFilePath, authorFilePath);
 
         //computation of the hypothesis author file
-        reco1.recognizeFileLanguage(sentenceFilePath, hypFilePath);
+        reco2.recognizeFileLanguage(sentenceFilePath, hypFilePath);
     }
 
 
@@ -310,10 +310,10 @@ retourner auteurMax
                                                 String hypFilePath, String refFilePath) {
 
         //initialization of the recognition system
-        AuthorRecognizer1 reco1 = new AuthorRecognizer1(configFilePath, vocabFilePath, authorFilePath);
+        AuthorRecognizer2 reco2 = new AuthorRecognizer2(configFilePath, vocabFilePath, authorFilePath);
 
         //computation of the hypothesis author file
-        reco1.recognizeFileLanguage(sentenceFilePath, hypFilePath);
+        reco2.recognizeFileLanguage(sentenceFilePath, hypFilePath);
 
         //computation of the performance of the recognition system
         System.out.println("\nPerformances du système : \n"
