@@ -1,14 +1,15 @@
 package myLangModel;
-
+import myLangModel.NgramUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.rules.TestName;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-//import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 
 /**
@@ -44,99 +45,133 @@ public class MyNgramUtilsTest {
 
 
     /**
-     * Test method for {@link NgramUtils#getSequenceSize(java.lang.String)}.
+     * Test method for {@link NgramUtils#getSequenceSize(String)}.
      */
     @Test
     public void testGetSequenceSize() {
-        // TODO
+        // DONE
+        assertEquals(9, NgramUtils.getSequenceSize(sentence));
+
+
     }
 
 
     /**
-     * Test method for {@link NgramUtils#generateNgrams(java.lang.String, int, int)}.
+     * Test method for {@link NgramUtils#generateNgrams(String, int, int)}.
      */
     @Test
     public void testGenerateNgramsBigrams() {
-        // TODO
+        // DONE
+        System.out.println(NgramUtils.generateNgrams(sentence,1,2));
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList("<s>", "cette", "phrase", "est", "de", "taille", "9", ".", "</s>", "<s> cette", "cette phrase", "phrase est", "est de", "de taille", "taille 9", "9 .",". </s>"));
+        assertEquals(NgramUtils.generateNgrams(sentence,1,2),list);
+
+
     }
 
 
     /**
-     * Test method for {@link NgramUtils#generateNgrams(java.lang.String, int, int)}.
+     * Test method for {@link NgramUtils#generateNgrams(String, int, int)}.
      */
     @Test
     public void testGenerateNgrams1to3grams() {
-        // TODO
-
-
+        // DONE
+        System.out.println(NgramUtils.generateNgrams(sentence, 1,3));
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList("<s>", "cette", "phrase", "est", "de", "taille", "9", ".", "</s>", "<s> cette", "cette phrase", "phrase est", "est de", "de taille", "taille 9", "9 .", ". </s>", "<s> cette phrase", "cette phrase est", "phrase est de", "est de taille", "de taille 9", "taille 9 .", "9 . </s>"));
+        assertEquals(NgramUtils.generateNgrams(sentence,1,3), list);
     }
 
 
     /**
-     * Test method for {@link NgramUtils#getHistory(java.lang.String, int)}.
+     * Test method for {@link NgramUtils#getHistory(String, int)}.
      */
     @Test
     public void testGetHistoryOrder2() {
-        // TODO
+        // DONE
+        System.out.println(NgramUtils.getHistory(ngram, 2));
+        String string = "ce";
+        assertEquals(NgramUtils.getHistory(ngram,2), string);
 
     }
 
 
     /**
-     * Test method for {@link NgramUtils#getHistory(java.lang.String, int)}.
+     * Test method for {@link NgramUtils#getHistory(String, int)}.
      */
     @Test
     public void testGetHistoryOrder3() {
-        // TODO
-
+        // DONE
+        System.out.println(NgramUtils.getHistory(ngram, 3));
+        String string = "de ce";
+        assertEquals(NgramUtils.getHistory(ngram,3), string);
     }
 
     /**
-     * Test method for {@link NgramUtils#getHistory(java.lang.String, int)}.
+     * Test method for {@link NgramUtils#getHistory(String, int)}.
      */
     @Test
     public void testGetHistoryOrder0() {
-        // TODO
+        // DONE
+        System.out.println(NgramUtils.getHistory(ngram, 0));
+        String string = "";
+        assertEquals(NgramUtils.getHistory(ngram,0), string);
 
     }
 
 
     /**
-     * Test method for {@link NgramUtils#decomposeIntoNgrams(java.lang.String, int)}.
+     * Test method for {@link NgramUtils#decomposeIntoNgrams(String, int)}.
      */
     @Test
     public void testDecomposeInto1grams() {
-        // TODO
-
+        // DONE
+        System.out.println(NgramUtils.decomposeIntoNgrams(sentence, 1));
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList("<s>", "cette", "phrase", "est", "de", "taille", "9", ".", "</s>"));
+        assertEquals(NgramUtils.decomposeIntoNgrams(sentence, 1), list);
     }
 
 
     /**
-     * Test method for {@link NgramUtils#decomposeIntoNgrams(java.lang.String, int)}.
+     * Test method for {@link NgramUtils#decomposeIntoNgrams(String, int)}.
      */
     @Test
     public void testDecomposeInto2grams() {
-        // TODO
+        // DONE
+        System.out.println(NgramUtils.decomposeIntoNgrams(sentence, 2));
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList("<s>", "<s> cette", "cette phrase", "phrase est", "est de", "de taille", "taille 9", "9 .", ". </s>"));
+        assertEquals(NgramUtils.decomposeIntoNgrams(sentence, 2), list);
 
     }
 
 
     /**
-     * Test method for {@link NgramUtils#decomposeIntoNgrams(java.lang.String, int)}.
+     * Test method for {@link NgramUtils#decomposeIntoNgrams(String, int)}.
      */
     @Test
     public void testDecomposeInto3grams() {
         // TODO
+        System.out.println(NgramUtils.decomposeIntoNgrams(sentence, 3));
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList("<s>", "<s> cette", "<s> cette phrase", "cette phrase est", "phrase est de", "est de taille", "de taille 9", "taille 9 .", "9 . </s>"));
+        assertEquals(NgramUtils.decomposeIntoNgrams(sentence, 3), list);
+
 
     }
 
 
     /**
-     *
+     * Test method for {@link NgramUtils#word2characterTokens(String)}.
      */
     @Test
     public void testWord2characterTokens() {
         // TODO
+        String word = "phrase";
+        System.out.println(NgramUtils.word2characterTokens(word));
+        assertEquals(NgramUtils.word2characterTokens(word), "p h r a s e");
     }
 
 

@@ -157,15 +157,15 @@ retourner auteurMax
 
 
 		/* Tests sur les 100 phrases de validation, avec les petits modèles de langage */
-		reco_small_author_corpus_100sentences();
+		//reco_small_author_corpus_100sentences();
 
 		/* Tests sur les 5000 phrases de validation, avec les petits modèles de langage */
-		reco_small_author_corpus_5000sentences();
+		//reco_small_author_corpus_5000sentences();
 
 
 		/* Tests sur les 100 phrases de validation, avec les plus gros modèles de langage
 		   que vous devez d'abord avoir construits. */
-		reco_author_corpus_100sentences();
+		//reco_author_corpus_100sentences();
 
 		/* Tests sur les 5000 phrases de validation, avec les plus gros modèles de langage
 		   que vous devez d'abord avoir construits. */
@@ -174,12 +174,12 @@ retourner auteurMax
 
 		/* Génération des runs, sur les phrases de test (que vous devez avoir
 		   récupérées sur madoc), avec les petits modèles de langage. */
-		reco_small_author_corpus_run();
+		//reco_small_author_corpus_run();
 
 		/* Génération des runs, sur les phrases de test (que vous devez avoir
 		   récupérées sur madoc), avec les plus gros modèles de langage que vous devez
 		   d'abord avoir construits. */
-		reco_author_corpus_run();
+		//reco_author_corpus_run();
 	}
 
 
