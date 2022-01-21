@@ -1,0 +1,10 @@
+balzac	balzac_tri	lm/author_corpus/trigram_balzac.lm
+hugo	hugo_tri	lm/author_corpus/trigram_hugo.lm
+maupassant	maupassant_tri	lm/author_corpus/trigram_maupassant.lm
+moliere	moliere_tri	lm/author_corpus/trigram_moliere.lm
+montaigne	montaigne_tri	lm/author_corpus/trigram_montaigne.lm
+sand	sand_tri	lm/author_corpus/trigram_sand.lm
+tocqueville	tocqueville_tri	lm/author_corpus/trigram_tocqueville.lm
+tolstoi	tolstoi_tri	lm/author_corpus/trigram_tolstoi.lm
+verne	verne_tri	lm/author_corpus/trigram_verne.lm
+zola	zola_tri	lm/author_corpus/trigram_zola.lm

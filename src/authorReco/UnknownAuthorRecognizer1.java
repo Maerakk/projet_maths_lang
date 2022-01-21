@@ -42,7 +42,26 @@ public class UnknownAuthorRecognizer1 extends AuthorRecognizer1 {
 	 */
 	public String recognizeAuthorSentence(String sentence) {
 		// TODO
-		return UNKNOWN_AUTHOR;
+		String authorMax = "";
+		Double scoreMax = -1.0;
+		for (String author:authorLangModelsMap.keySet()) {
+			// ex : balzac
+			for (String name_model : authorLangModelsMap.get(author).keySet()){
+				// ex : balzac_bi
+				LanguageModelInterface lm = authorLangModelsMap.get(author).get(name_model);
+				Double score = lm.getSentenceProb(sentence);
+				if(score>scoreMax){
+					scoreMax = score;
+					authorMax = author;
+				}
+
+			}
+		}
+
+		if(scoreMax < Math.pow(10,-200)){
+			return UNKNOWN_AUTHOR;
+		}
+		return authorMax;
 	}
 
 	
@@ -54,7 +73,6 @@ public class UnknownAuthorRecognizer1 extends AuthorRecognizer1 {
 	 */
 	public static void main(String[] args) {
 		// mettre en commentaire les parties non utilisées //
-
 
 		/* Tests sur les 100 phrases de validation, avec les petits modèles de langage */
 		//reco_small_author_corpus_100sentences();
@@ -85,7 +103,7 @@ public class UnknownAuthorRecognizer1 extends AuthorRecognizer1 {
 
 		/* Tests sur les 5019 phrases de validation, dont 19 phrases d'un auteur inconnu,
 		   avec les plus gros modèles de langage que vous devez d'abord avoir construits. */
-		//reco_author_corpus_5019sentences();
+		// reco_author_corpus_5019sentences();
 
 
 		/* Génération des runs, sur les phrases de test (que vous devez avoir

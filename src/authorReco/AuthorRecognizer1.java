@@ -61,8 +61,8 @@ public class AuthorRecognizer1 extends AuthorRecognizerAbstractClass {
 
 				// -----------------------------------------------------------------------
 				// SET: Choose the model class to use by commenting/uncommenting the right line  
-				lm = new NaiveLanguageModel();
-				//lm = new LaplaceLanguageModel();
+				// lm = new NaiveLanguageModel();
+				lm = new LaplaceLanguageModel();
 				// ------------------------------------------------------------------------
 
 				ngramCounts = new NgramCounts();
@@ -169,7 +169,7 @@ retourner auteurMax
 
 		/* Tests sur les 5000 phrases de validation, avec les plus gros modèles de langage
 		   que vous devez d'abord avoir construits. */
-		reco_author_corpus_5000sentences();
+		//reco_author_corpus_5000sentences();
 
 
 		/* Génération des runs, sur les phrases de test (que vous devez avoir
@@ -179,7 +179,7 @@ retourner auteurMax
 		/* Génération des runs, sur les phrases de test (que vous devez avoir
 		   récupérées sur madoc), avec les plus gros modèles de langage que vous devez
 		   d'abord avoir construits. */
-		//reco_author_corpus_run();
+		reco_author_corpus_run();
 	}
 
 
@@ -283,12 +283,12 @@ retourner auteurMax
 	 */
 	public static void reco_author_corpus_run(){
 		String dirPathLM = "lm/author_corpus/";
-		String configFilePath = dirPathLM + "fichConfig_bigram.txt";
+		String configFilePath = dirPathLM + "fichConfig_trigram.txt";
 		String vocabFilePath = dirPathLM + "corpus_20000.vocab";
 		String dirPath = "data/author_corpus/test/";
 		String authorFilePath = dirPath + "authors.txt";
 		String sentenceFilePath = dirPath + "sentences.txt";
-		String hypFilePath = dirPath + "authors_hyp-reco1.txt";
+		String hypFilePath = dirPath + "authors_hyp-reco2.txt";
 
 		create_hyp_file(configFilePath, vocabFilePath, authorFilePath,
 						sentenceFilePath, hypFilePath);

@@ -39,10 +39,10 @@ public class CreateLanguageModels {
     String repCorpus = "author_corpus";
     
     // Spécifier ici l'ordre de votre modèle de langue 
-    int order = 2;
+    int order = 3;
 
     // Spécifier ici le nom 
-    String prefLM = "bigram";
+    String prefLM = "trigram";
     
 
     /* CHARGEMENT DU VOCABULAIRE */
